@@ -5,10 +5,7 @@ from discord.ext import commands
 class Debug(commands.Cog):
   def __init__(self, client):
       self.client = client
-      self.n_list = open("n-word-list.txt", "r")
-      self.list = self.n_list.readlines()
-      self.marked_users = []
-      self.strikes = []
+
 
   @commands.command()
   async def whereAmI(self, ctx):
