@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from replit import db
+import datetime
 
 
 class Management(commands.Cog):
@@ -11,7 +12,7 @@ class Management(commands.Cog):
   @commands.has_permissions(kick_members=True)
   async def kick(self, ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
-    db[str(member)][1] = int(db[str(member)][1])+1
+    db[str(member)][2] = int(db[str(member)][2])+1
     await self.client.get_channel(971637156030337024).send(str(member)+" has been kicked")
 
 
@@ -19,7 +20,6 @@ class Management(commands.Cog):
   @commands.has_permissions(ban_members=True)
   async def ban(self, ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)
-    db[str(member)][2] = int(db[str(member)][2])+1
     await self.client.get_channel(971637156030337024).send(str(member)+" has been banned")
     f = open("txt/banned-users.txt", "w")
     f.write(str(member)+"="+reason)
@@ -47,19 +47,6 @@ class Management(commands.Cog):
         await ctx.channel.purge(limit=10)
       else:
         await ctx.channel.purge(limit=int(amount)+1)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -8,16 +8,19 @@ class WordFilter(commands.Cog):
     self.n_list = open("txt/n-word-list.txt", "r")
     self.list = self.n_list.readlines()
     self.n_list.close()
-
+    self.last_message = ""
   
   @commands.Cog.listener()
-  async def on_message(self, message):
+  async def on_message(self, message : discord.Message):
     if not message.author.bot: #check if the message is from the bot
       for e in self.list:     #look for bad words
         if e.strip() in message.content:    #found a bad word
           await message.channel.send("mind your language!")
-          db[str(message.author)][0] = int(db[str(message.author)][0]) + 1
-          await message.channel.send("you have now "+str(db[str(message.author)][0])+" strikes")
+          db[str(message.author)][1] = int(db[str(message.author)][1]) + 1
+          await message.channel.send("you have now "+str(db[str(message.author)][1])+" strikes")
+      if message.content == self.last_message:
+        await message.delete()
+      self.last_message = message.content
 
 
   @commands.command()
@@ -39,7 +42,7 @@ class WordFilter(commands.Cog):
     await ctx.send(s)
 
 
-
+  
 
 
 
