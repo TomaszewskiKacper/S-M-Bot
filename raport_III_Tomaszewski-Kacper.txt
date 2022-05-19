@@ -1,0 +1,79 @@
+Kacper Tomaszewski                                                    31.03.2022
+
+Raport III
+
+Do projektu zostały dodane funkcje:
+- Generator obrazów
+- więcej statystyk do śledzenia
+- podstawowy anty spam
+- możliwość wyświetlenia statystyk danego użytkownika
+
+
+Nieprzewidziane problemy:
+- Przestanie działania bota
+- problem z implementacją generatora obrazów
+- probrem z  implementacją "ignore user"
+
+
+Prace do ukończenia
+- więcej statystyk do śledzenia
+- random video
+- zarządzanie rolami i pokojami
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Archiwum aktualizacji
+
+
+# 07.05.2022
++ Dodanie "liczba wysłanych wiadomości" do śledzonych statystyk
++ Dodanie :liczba użytych komend" do śledzonych statystyk
+
+# 09.05.2022
++ Dodanie podstawowy anty-spam, usuwający wiadomośc jeśli jest taka sama jak poprzednia
+- problem z liczeniem statystyk
++ reimplementacja bazy danych by dodanie nowych statystyk do śledzenia było łatwiejsze
+
+# 12.05.2022
+- przestanie działania bota "bez powodu"
++ próby naprawienia błędu przez który bot nie działa
++ przywrócenie stanu projektu do 1 tygodnia wcześniej
+- bot dalej nie działa
++ szukanie powodu awarii
+
+# 13.05.2022
++ dalsze szukanie błędu
++ naprawa błędu z przestaniem działania bota [biblioteka discord.py była winna, posiada ona limit interakcji z botem, naprawa błędu poprzez użycie komendy "kill 1" w konsoli shell]
+
+# 14.05.2022
++ próba implementacji generatora obrazów
+- problem z wykryciem ścieżki do zapisywanych obrazów
++ naprawa problemu z wykrywaniem ścieżki
+- problem z obrazami zajmujących zbyt dużą ilość miejsca by funkcja była opłacalna do utrzymania
+
+# 15.05.2022
++ próba przepisania kodu na używanie linków zapisanych w pliku .txt zamiast używania obrazów przechowywanych na dysku
+
+# 16.05.2022
++ udana próba przepisania kodu 
+- potrzeba manualnego wpisywania linków do pliku .txt
++ próba zautomatyzowania wyszukiwania linków
++ udany prototyp generowania obrazów bez potrzeby samodzielnego szukania linków
+- prototyp posiada możliwośc generowania tylko jednego wyniku [ tylko obrazy np. psów ]
+
+# 17.05.2022
++ przepisanie generatora obrazów tak by można było wyszukiwać dowolną fraze
++ dodanie biblioteki serpapi
+- problemy z dodaniem biblioteki
++ naprawa problemu [pip install wymagał innej nazwy niz nazwa biblioteki]
++ udane wyszukiwanie dowolnej frazy za pomocą biblioteki
++ zaimplementowanie biblioteki do generatora obrazów
+
+# 18.05.2022
+- przestanie działania biblioteki
++ naprawa problemu (biblioteka wymaga użycia klucza wygenerowanego na stronie producenta)
+- limitowana ilość wyszukiwań na miesiąc
++ dodanie zapisywania wyników wyszukiwań w celu zaoszczędzenia ilości wyszukań
++ dodanie usuwania duplikatów
