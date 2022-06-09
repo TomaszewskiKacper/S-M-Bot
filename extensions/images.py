@@ -53,7 +53,7 @@ class Images(commands.Cog):
     if q == "nnn":
       q = self.last_query
     if str(q)+".txt" not in os.listdir("./extensions/img"):
-      #self.gsearch(q)
+      self.gsearch(q)
       print("true")
     self.last_query = str(q)
     file = open("./extensions/img/"+str(q)+".txt", "r")

@@ -49,19 +49,62 @@ class Management(commands.Cog):
         await ctx.channel.purge(limit=int(amount)+1)
 
 
+  @commands.command()
+  @commands.has_role("Admin")
+  async def add_role(self, ctx, member: discord.Member, r_name = "Test"):
+    roles = ctx.message.guild.roles
+    role = discord.utils.get(roles, name = r_name)
+    print(role)
+    await member.add_roles(role)
 
 
 
+  @commands.command()
+  @commands.has_role("Admin")
+  async def create_role(self, ctx, r_name = "Test"):
+    guild = ctx.message.guild
+    await guild.create_role(name=r_name)
+
+  @commands.command()
+  @commands.has_role("Admin")
+  async def remove_role(self, ctx, member: discord.Member, r_name = "Test"):
+    roles = ctx.message.guild.roles
+    role = discord.utils.get(roles, name = r_name)
+    print(role)
+    await member.remove_roles(role)
 
 
+  @commands.command()
+  @commands.has_role("Admin")
+  async def delete_role(self, ctx, r_name = "Test"):
+    guild = ctx.message.guild
+    roles = guild.roles
+    role = discord.utils.get(roles, name = r_name)
+    await role.delete()
 
 
+  @commands.command()
+  @commands.has_role("Admin")
+  async def create_text_channel(self, ctx, name):
+    guild = ctx.message.guild
+    await guild.create_text_channel(name)
+  
+
+  @commands.command()
+  @commands.has_role("Admin")
+  async def delete_channel(self, ctx, r_name = "Test"):
+    guild = ctx.message.guild
+    channels = guild.channels
+    channel = discord.utils.get(channels, name = r_name)
+    await channel.delete()
 
 
-
-
-
-
+  @commands.command()
+  @commands.has_role("Admin")
+  async def create_voice_channel(self, ctx, name):
+    guild = ctx.message.guild
+    await guild.create_voice_channel(name)
+  
 
 
 

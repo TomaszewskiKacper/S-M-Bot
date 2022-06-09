@@ -3,7 +3,7 @@ from discord.ext import commands
 from replit import db
 
 
-db_name = ["messages","strikes", "kicks", "bans", "commands used"]
+db_name = ["messages","strikes", "kicks", "bans", "commands used", "times mentioned by someone"]
 
 class Database(commands.Cog):
   def __init__(self, client):
